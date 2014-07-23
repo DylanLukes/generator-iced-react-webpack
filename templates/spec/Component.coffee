@@ -1,8 +1,6 @@
 'use strict'
 
 describe '<%= classedName %>', ->
-  var <%= classedName %>, component
-
   beforeEach ->
     <%= classedName %> = require '../../../src/scripts/components/<%= classedFileName %>.iced'
     component = do <%= classedName %>

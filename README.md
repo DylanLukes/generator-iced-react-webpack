@@ -2,6 +2,9 @@
 
 > Yeoman generator for [ReactJS](http://facebook.github.io/react/) - lets you quickly set up a project including the Iced CoffeeScript language, karma test runner, and [Webpack](http://webpack.github.io/) module system.
 
+## Fork Information
+
+This is a form of `generator-react-webpack`. All credit for the majority of the code in this repository goes to Simon Bailey (newtriks)
 
 ## Usage
 
@@ -15,9 +18,9 @@ Make a new directory, and `cd` into it:
 mkdir my-new-project && cd $_
 ```
 
-Run `yo react-webpack`, optionally passing an app name:
+Run `yo iced-react-webpack`, optionally passing an app name:
 ```
-yo react-webpack [app-name]
+yo iced-react-webpack [app-name]
 ```
 
 Run `grunt` for building and `grunt serve` for preview in the browser at [localhost](http://localhost:8000).
@@ -42,7 +45,7 @@ Sets up a new ReactJS app, generating all the boilerplate you need to get starte
 
 Example:
 ```bash
-yo react-webpack
+yo iced-react-webpack
 ```
 
 ### Component
@@ -56,44 +59,35 @@ yo iced-react-webpack:component foo
 
 Produces `src/scripts/components/Foo.iced` (*iced coffeescript - JSX*):
 ```
-/**
- * @jsx React.DOM
- */
+`/** @jsx React.DOM */`
 
-'use strict';
+'use strict'
 
-var React = require('react/addons');
+var React = require 'react/addons'
+require '../../styles/Foo.css'
 
-var Foo = React.createClass({
-  render: function () {
-    return (
-        <div>
-          <p>Content for Foo</p>
-        </div>
-      )
-  }
-});
+Foo = React.createClass({
+  render: ->
+    `<div>
+      <p>Content for Foo</p>
+    </div>`
 
-module.exports = Foo;
+module.exports = Foo
 ```
 
 And `test/spec/components/Foo.coffee` (*coffeescript - jasmine*):
 ```
 
-'use strict';
+'use strict'
 
-describe('Foo', function () {
-  var Foo, component;
+describe '<%= classedName %>', ->
+  beforeEach ->
+    Foo = require '../../../src/scripts/components/<%= classedFileName %>.iced'
+    component = do Foo
 
-  beforeEach(function () {
-    Foo = require('../../../src/scripts/components/Foo');
-    component = Foo();
-  });
+  it 'should create a new instance of <%= classedName %>', ->
+    expect(component).toBeDefined()
 
-  it('should create a new instance of Foo', function () {
-    expect(component).toBeDefined();
-  });
-});
 ```
 
 And `src/styles/Foo.css`:
