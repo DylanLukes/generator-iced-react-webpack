@@ -1,13 +1,13 @@
-# generator-react-webpack [![Build Status](https://secure.travis-ci.org/newtriks/generator-react-webpack.png?branch=master)](https://travis-ci.org/newtriks/generator-react-webpack)  [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+# generator-iced-react-webpack [![Build Status](https://secure.travis-ci.org/newtriks/generator-iced-react-webpack.png?branch=master)](https://travis-ci.org/DylanLukes/generator-iced-react-webpack)  [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
-> Yeoman generator for [ReactJS](http://facebook.github.io/react/) - lets you quickly set up a project including karma test runner and [Webpack](http://webpack.github.io/) module system.
+> Yeoman generator for [ReactJS](http://facebook.github.io/react/) - lets you quickly set up a project including the Iced CoffeeScript language, karma test runner, and [Webpack](http://webpack.github.io/) module system.
 
 
 ## Usage
 
-Install `generator-react-webpack`:
+Install `generator-iced-react-webpack`:
 ```
-npm install -g generator-react-webpack
+npm install -g generator-iced-react-webpack
 ```
 
 Make a new directory, and `cd` into it:
@@ -26,8 +26,8 @@ Run `grunt` for building and `grunt serve` for preview in the browser at [localh
 
 Available generators:
 
-* [react-webpack](#app) (aka [react-webpack:app](#app))
-* [react-webpack:component](#component)
+* [iced-react-webpack](#app) (aka [iced-react-webpack:app](#app))
+* [iced-react-webpack:component](#component)
 
 **Note: Generators are to be run from the root directory of your app.**
 
@@ -51,10 +51,10 @@ Generates a [JSX](http://facebook.github.io/react/docs/jsx-in-depth.html) compon
 
 Example:
 ```bash
-yo react-webpack:component foo
+yo iced-react-webpack:component foo
 ```
 
-Produces `src/scripts/components/Foo.jsx` (*javascript - JSX*):
+Produces `src/scripts/components/Foo.iced` (*iced coffeescript - JSX*):
 ```
 /**
  * @jsx React.DOM
@@ -77,7 +77,7 @@ var Foo = React.createClass({
 module.exports = Foo;
 ```
 
-And `test/spec/components/Foo.js` (*javascript - jasmine*):
+And `test/spec/components/Foo.coffee` (*coffeescript - jasmine*):
 ```
 
 'use strict';
@@ -119,9 +119,9 @@ project
   - src
     - scripts
       -components
-        ComponentOne.js
-        ComponentTwo.js
-      main.js
+        ComponentOne.iced
+        ComponentTwo.iced
+      main.iced
     - styles
       main.css
       reset.css
@@ -129,14 +129,14 @@ project
   - test
     - spec
       - components
-        ComponentOne.js
-        ComponentTwo.js
+        ComponentOne.coffee
+        ComponentTwo.coffee
     - helpers
       - react
         addons.js
       phantomjs-shims.js
-  Gruntfile.js
-  karma.conf.js
+  Gruntfile.coffee
+  karma.conf.coffee
 ```
 
 I have tried to keep the project structure as simple as possible and understand it may not suit everyone. 

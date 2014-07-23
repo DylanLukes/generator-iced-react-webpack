@@ -33,8 +33,8 @@ var Generator = module.exports = function Generator() {
 	}
 
 	var sourceRoot = '/templates/';
-	this.scriptSuffix = '.js';
-	this.reactSuffix = '.jsx';
+	this.scriptSuffix = '.coffee';
+	this.reactSuffix = '.iced';
 
 	this.stylesSuffix = '.css';
 

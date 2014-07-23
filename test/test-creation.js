@@ -5,7 +5,7 @@ var path = require('path');
 var helpers = require('yeoman-generator').test;
 var _ = require('underscore.string');
 
-describe('react-webpack generator', function () {
+describe('iced-react-webpack generator', function () {
     var react;
 
     beforeEach(function (done) {
@@ -20,7 +20,7 @@ describe('react-webpack generator', function () {
                 return done(err);
             }
 
-            react = helpers.createGenerator('react-webpack:app', deps);
+            react = helpers.createGenerator('iced-react-webpack:app', deps);
             react.options['skip-install'] = true;
             done();
         }.bind(this));
@@ -38,15 +38,15 @@ describe('react-webpack generator', function () {
             'src/styles/reset.css',
             'src/styles/main.css',
             'src/index.html',
-            'Gruntfile.js',
-            'webpack.config.js',
-            'karma.conf.js',
+            'Gruntfile.coffee',
+            'webpack.config.coffee',
+            'karma.conf.coffee',
             'package.json',
             'package.json',
-            'src/scripts/components/TempTestApp.jsx',
+            'src/scripts/components/TempTestApp.iced',
             'test/helpers/phantomjs-shims.js',
             'test/helpers/react/addons.js',
-            'test/spec/components/TempTestApp.js',
+            'test/spec/components/TempTestApp.coffee',
         ];
 
         react.run({}, function () {
@@ -81,13 +81,13 @@ describe('react-webpack generator', function () {
         var reactGenerator;
         var name = 'Foo';
         var deps = [path.join('../..', generatorType)];
-        reactGenerator = helpers.createGenerator('react-webpack:' + generatorType, deps, [name]);
+        reactGenerator = helpers.createGenerator('iced-react-webpack:' + generatorType, deps, [name]);
         react.run([], function () {
             //var Foo = React.createClass({
             reactGenerator.run([], function () {
                 helpers.assertFiles([
-                    [path.join('src/scripts', targetDirectory, name + '.jsx'), new RegExp('var ' + scriptNameFn(name) + suffix, 'g')],
-                    [path.join('test/spec', targetDirectory, name + '.js'), new RegExp('describe\\(\'' + specNameFn(name) + suffix + '\'', 'g')]
+                    [path.join('src/scripts', targetDirectory, name + '.iced'), new RegExp(scriptNameFn(name) + suffix, 'g')],
+                    [path.join('test/spec', targetDirectory, name + '.coffee'), new RegExp('describe\\ \'' + specNameFn(name) + suffix + '\'', 'g')]
                 ]);
                 done();
             });
